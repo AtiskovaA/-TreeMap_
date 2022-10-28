@@ -11,10 +11,9 @@ public class Main {
         listPeople.add(new Person("Лоди", "Юдин Мыс", 28));
         listPeople.add(new Person("Мадин", "Фролов", 17));
         listPeople.add(new Person("Тори", "Мира Ми", 15));
+
+        listPeople.removeIf(x -> x.getAge() < 18);
         System.out.println(listPeople);
 
-        Collections.sort(listPeople, new PersonComparator(20));
-        // System.out.println(listPeople);
-        
     }
 }

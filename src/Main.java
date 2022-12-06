@@ -1,7 +1,4 @@
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
@@ -13,8 +10,16 @@ public class Main {
         listPeople.add(new Person("Тори", "Мира Ми", 15));
         System.out.println(listPeople);
 
-        Collections.sort(listPeople, new PersonComparator(20));
-        // System.out.println(listPeople);
-        
+
+        listPeople.sort ((p1, p2) -> {
+            int len1 = p1.getSurname().split(" ").length;
+            int len2 = p2.getSurname().split(" ").length;
+            if (len1 != len2) {
+                return Integer.compare(len1, len2);
+            }
+            return Integer.compare(p1.getAge(), p2.getAge());
+        });
+
+        System.out.println(listPeople);
     }
 }
